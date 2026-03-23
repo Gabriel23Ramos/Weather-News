@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather News</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <h1>Weather News</h1>
+
+    <div class="search">
+      <input type="text" id="cityInput" placeholder="Search for a city..." autocomplete="off" />
+      <button class="btn-search" onclick="getWeather()">Search</button>
+      <button class="btn-location" onclick="getLocation()" title="Usar minha localização">📍</button>
+    </div>
+
+    <p id="loading" class="loading-text"></p>
+
+    <div id="weatherResult"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
