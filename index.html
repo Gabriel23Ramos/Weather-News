@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weather News</title>
+  <title>Weather News — Real-time forecast</title>
+  <meta name="description" content="A clean, real-time weather app with 3-day forecast, geolocation and unit toggle." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%80%EF%B8%8F%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
@@ -11,21 +13,38 @@
 </head>
 <body>
 
+  <div class="weather-particles" id="particles" aria-hidden="true"></div>
+
   <div class="app">
 
-    <h1>Weather News</h1>
+    <header class="app-header">
+      <h1><span class="brand-icon" id="brandIcon">☀️</span> Weather News</h1>
+      <button class="unit-toggle" id="unitToggle" title="Switch units">°C</button>
+    </header>
 
     <div class="search">
       <input type="text" id="cityInput" placeholder="Search for a city..." autocomplete="off" />
-      <button class="btn-search" onclick="getWeather()">Search</button>
-      <button class="btn-location" onclick="getLocation()" title="Usar minha localização">📍</button>
+      <button class="btn-search" id="searchBtn">Search</button>
+      <button class="btn-location" id="locationBtn" title="Use my location">📍</button>
     </div>
 
+    <div class="recent" id="recentChips"></div>
+
     <p id="loading" class="loading-text"></p>
+    <div id="spinner" class="spinner" hidden></div>
 
     <div id="weatherResult"></div>
 
+    <div class="empty-state" id="emptyState">
+      <span class="empty-icon">🌤️</span>
+      <p>Search a city or use your location<br />to see the current weather.</p>
+    </div>
+
   </div>
+
+  <footer class="app-footer">
+    Built by <a href="https://github.com/Gabriel23Ramos" target="_blank">Gabriel Ramos</a>
+  </footer>
 
   <script src="script.js"></script>
 </body>
